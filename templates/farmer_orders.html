@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>Orders for My Products</h2>
+
+{% if orders %}
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Order ID</th>
+    <th>Product</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Customer</th>
+    <th>Status</th>
+    <th>Date</th>
+  </tr>
+  {% for o in orders %}
+  <tr>
+    <td>{{ o.order_id }}</td>
+    <td>{{ o.product_name }}</td>
+    <td>{{ o.quantity }}</td>
+    <td>₹{{ o.price }}</td>
+    <td>{{ o.customer_name }}</td>
+    <td>{{ o.status }}</td>
+    <td>{{ o.created_at }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>No orders yet.</p>
+{% endif %}
+
+{% endblock %}

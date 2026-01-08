@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Farmer Dashboard</h2>
+
+<form method="post">
+  <input name="name" placeholder="Product Name">
+  <input name="price" placeholder="Price">
+  <input name="quantity" placeholder="Quantity">
+  <button>Add Product</button>
+</form>
+<h3>Your Products</h3>
+{% for p in products %}
+  <p>{{ p.name }} - {{ p.quantity }} kg</p>
+{% endfor %}
+{% endblock %}

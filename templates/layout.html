@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Local Farmer Store</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+  <b>🌱 Local Farmer Store</b>
+  <div>
+    <a href="/">Home</a>
+    <a href="/products">Products</a>
+
+    {% if session.get("user_id") %}
+        {% if session.get("role") == "farmer" %}
+            <a href="/farmer/dashboard">Dashboard</a>
+        {% endif %}
+        {% if session.get("role") == "farmer" %}
+          <a href="{{ url_for('farmer_orders') }}">My Orders</a>
+        {% endif %}
+        
+        {% if session.get("role") == "customer" %}
+          <a href="{{ url_for('my_orders') }}">My Orders</a>
+        {% endif %}
+
+        {% if session.get("role") == "admin" %}
+          <a href="{{ url_for('admin_orders') }}">Admin Orders</a>
+        {% endif %}
+
+
+        <a href="/cart">Cart</a>
+        <a href="/logout">Logout</a>
+    {% else %}
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+    {% endif %}
+  </div>
+</nav>
+
+<div class="container">
+  {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

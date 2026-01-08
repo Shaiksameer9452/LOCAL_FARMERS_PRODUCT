@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>My Cart</h2>
+
+{% if cart_items %}
+  <table border="1" cellpadding="8">
+    <tr>
+      <th>Product</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+    </tr>
+
+    {% for item in cart_items %}
+    <tr>
+      <td>{{ item.name }}</td>
+      <td>₹{{ item.price }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>₹{{ item.price * item.quantity }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% else %}
+  <p>Your cart is empty</p>
+{% endif %}
+{% if cart_items %}
+  <br>
+  <a href="{{ url_for('place_order') }}" class="btn btn-cart">
+    Place Order
+  </a>
+{% endif %}
+
+
+{% endblock %}
