@@ -18,7 +18,8 @@ CREATE TABLE IF NOT EXISTS products (
     name TEXT,
     price REAL,
     quantity INTEGER,
-    farmer_id INTEGER
+    farmer_id INTEGER,
+    image TEXT
 )
 """)
 
@@ -29,6 +30,17 @@ CREATE TABLE IF NOT EXISTS orders (
     product_id INTEGER,
     quantity INTEGER,
     status TEXT
+)
+""")
+db.execute("""
+CREATE TABLE order_items (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    order_id INTEGER,
+    product_id INTEGER,
+    quantity INTEGER,
+    price REAL,
+    FOREIGN KEY (order_id) REFERENCES orders(id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
 )
 """)
 

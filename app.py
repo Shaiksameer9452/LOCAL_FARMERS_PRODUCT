@@ -105,28 +105,36 @@ def add_to_cart(product_id):
     db.commit()
     return redirect(url_for("view_cart"))
 
-
-@app.route("/farmer/dashboard", methods=["GET","POST"])
+@app.route("/farmer/dashboard", methods=["GET", "POST"])
 def farmer_dashboard():
     if session.get("role") != "farmer":
-        return redirect("/login")
+        return "Access denied", 403
 
     db = get_db()
 
     if request.method == "POST":
-        db.execute(
-            "INSERT INTO products (name,price,quantity,farmer_id) VALUES (?,?,?,?)",
-            (
-                request.form["name"],
-                request.form["price"],
-                request.form["quantity"],
-                session["user_id"]
-            )
-        )
+        name = request.form["name"].lower()
+        price = request.form["price"]
+        quantity = request.form["quantity"]
+
+        # 🔍 GET IMAGE FROM EXISTING PRODUCTS (MASTER)
+        image_row = db.execute(
+            "SELECT image FROM products WHERE name = ? AND image IS NOT NULL LIMIT 1",
+            (name,)
+        ).fetchone()
+
+        image = image_row["image"] if image_row else "default.jpg"
+
+        # ✅ INSERT FARMER PRODUCT WITH IMAGE
+        db.execute("""
+            INSERT INTO products (name, price, quantity, image, farmer_id)
+            VALUES (?, ?, ?, ?, ?)
+        """, (name, price, quantity, image, session["user_id"]))
+
         db.commit()
 
     products = db.execute(
-        "SELECT * FROM products WHERE farmer_id=?",
+        "SELECT * FROM products WHERE farmer_id = ?",
         (session["user_id"],)
     ).fetchall()
 
