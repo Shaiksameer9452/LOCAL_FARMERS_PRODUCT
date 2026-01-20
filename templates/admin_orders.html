@@ -1,43 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-  </head>
-  <body>
-    <h2>Admin – Manage Orders</h2>
-    <a href="{{ url_for('admin_logout') }}">Logout</a>
-    <table border="1" cellpadding="8">
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="page-box">
+  <h2>Admin Orders</h2>
+
+  {% if orders %}
+  <table class="data-table">
+    <thead>
       <tr>
         <th>Order ID</th>
         <th>Customer</th>
         <th>Total Price</th>
         <th>Status</th>
-        <th>Date</th>
+        <th>Created At</th>
         <th>Action</th>
       </tr>
-
+    </thead>
+    <tbody>
       {% for o in orders %}
       <tr>
-        <td>{{ o.order_id }}</td>
+        <td>#{{ o.order_id }}</td>
         <td>{{ o.customer_name }}</td>
         <td>₹{{ o.total_price }}</td>
-        <td>{{ o.status }}</td>
-        <td>{{ o.created_at }}</td>
+
         <td>
-          {% if o.status == 'pending' %}
-            <a href="{{ url_for('admin_update_order', order_id=o.order_id, new_status='approved') }}">✅ Approve</a>
-            |
-            <a href="{{ url_for('admin_update_order', order_id=o.order_id, new_status='cancelled') }}">❌ Cancel</a>
-          {% else %}
-            —
-          {% endif %}
+          <span class="status {{ o.status }}">
+            {{ o.status|title }}
+          </span>
+        </td>
+
+        <td>{{ o.created_at }}</td>
+
+        <td>
+          <a
+            href="{{ url_for('admin_update_order', order_id=o.order_id, new_status='approved') }}"
+            class="btn small green"
+          >
+            Approve
+          </a>
+
+          <a
+            href="{{ url_for('admin_update_order', order_id=o.order_id, new_status='cancelled') }}"
+            class="btn small red"
+          >
+            Cancel
+          </a>
         </td>
       </tr>
       {% endfor %}
-    </table>
-  </body>
-</html>
-
-
+    </tbody>
+  </table>
+  {% else %}
+    <p>No orders found.</p>
+  {% endif %}
+</div>
+{% endblock %}

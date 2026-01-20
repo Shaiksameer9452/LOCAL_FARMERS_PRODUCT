@@ -1,8 +1,32 @@
 {% extends "layout.html" %}
 {% block content %}
-<h2>My Orders</h2>
-
-{% for o in orders %}
-  <p>{{ o.name }} - {{ o.quantity }} kg - {{ o.status }}</p>
-{% endfor %}
+<div class="page-box">
+  <h2> My Orders </h2>
+  {% if orders %}
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity (kg)</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for o in orders %}
+        <tr>
+          <td>{{ o.name }}</td>
+          <td>{{ o.quantity }}</td>
+          <td>
+            <span class="status {{ o.status }}">
+              {{ o.status|title }}
+            </span>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p class="empty-text">No orders found.</p>
+  {% endif %}
+</div>
 {% endblock %}

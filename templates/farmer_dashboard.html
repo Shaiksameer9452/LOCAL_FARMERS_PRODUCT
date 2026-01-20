@@ -1,15 +1,48 @@
 {% extends "layout.html" %}
 {% block content %}
-<h2>Farmer Dashboard</h2>
 
-<form method="post">
-  <input name="name" placeholder="Product Name">
-  <input name="price" placeholder="Price">
-  <input name="quantity" placeholder="Quantity">
-  <button>Add Product</button>
-</form>
-<h3>Your Products</h3>
-{% for p in products %}
-  <p>{{ p.name }} - {{ p.quantity }} kg</p>
-{% endfor %}
+<div class="page-box">
+
+  <h2> Farmer Dashboard</h2>
+
+  <!-- ADD PRODUCT FORM -->
+  <div class="form-box">
+    <h3>Add New Product</h3>
+
+    <form method="post">
+      <input name="name" placeholder="Product Name" required>
+      <input name="price" placeholder="Price" required>
+      <input name="quantity" placeholder="Quantity" required>
+      <button>Add Product</button>
+    </form>
+  </div>
+
+  <!-- FARMER PRODUCTS -->
+  <div class="table-box">
+    <h3>Your Products</h3>
+
+    {% if products %}
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Quantity (kg)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for p in products %}
+          <tr>
+            <td>{{ p.name }}</td>
+            <td>{{ p.quantity }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p class="empty-text">No products added yet.</p>
+    {% endif %}
+  </div>
+
+</div>
+
 {% endblock %}

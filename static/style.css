@@ -64,3 +64,530 @@ body {
   border-radius: 8px;
   margin-bottom: 15px;
 }
+
+/* =======================
+   RESET
+======================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =======================
+   BODY
+======================= */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+/* =======================
+   NAVBAR
+======================= */
+.navbar {
+  background-color: #2e7d32;
+  color: white;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 6px;
+}
+
+.nav-right a {
+  color: white;
+  text-decoration: none;
+  margin-left: 18px;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.nav-right a:hover {
+  opacity: 0.85;
+}
+
+/* Buttons in navbar */
+.logout-btn {
+  background-color: #c62828;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+.register-btn {
+  background-color: #1565c0;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+/* =======================
+   MAIN CONTAINER
+======================= */
+.container {
+  max-width: 1200px;
+  margin: 25px auto;
+  padding: 0 15px;
+}
+
+/* =======================
+   HEADINGS
+======================= */
+h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+/* =======================
+   PRODUCT GRID (HOME / PRODUCTS)
+======================= */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+.product-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.product-card h3 {
+  margin: 10px 0 6px;
+  font-size: 18px;
+}
+
+.price {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.qty {
+  font-size: 14px;
+  color: #666;
+}
+
+/* =======================
+   BUTTONS
+======================= */
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 14px;
+  background-color: #2e7d32;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.btn:hover {
+  background-color: #1b5e20;
+}
+
+/* =======================
+   TABLES (ORDERS / CART)
+======================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+}
+
+th {
+  background-color: #f0f0f0;
+  font-weight: 600;
+}
+
+/* =======================
+   FORMS (LOGIN / REGISTER / FARMER)
+======================= */
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+form input,
+form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #1b5e20;
+}
+
+/* =======================
+   PAGE BOX
+======================= */
+.page-box {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* =======================
+   DATA TABLE
+======================= */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.data-table th,
+.data-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+}
+
+.data-table th {
+  background: #f5f5f5;
+  font-weight: 600;
+}
+
+/* =======================
+   STATUS BADGES
+======================= */
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.approved {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status.cancelled {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* =======================
+   SMALL BUTTONS
+======================= */
+.btn.small {
+  padding: 5px 10px;
+  font-size: 13px;
+  margin-right: 5px;
+}
+
+.btn.green {
+  background: #2e7d32;
+}
+
+.btn.red {
+  background: #c62828;
+}
+
+.btn.green:hover {
+  background: #1b5e20;
+}
+
+.btn.red:hover {
+  background: #a00000;
+}
+
+/* =======================
+   AUTH PAGES (LOGIN / ADMIN)
+======================= */
+.auth-box {
+  max-width: 400px;
+  margin: 70px auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.auth-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.auth-form button:hover {
+  background-color: #1b5e20;
+}
+
+/* =======================
+   CART PAGE
+======================= */
+.cart-actions {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.empty-text {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #666;
+}
+
+/* =======================
+   FARMER DASHBOARD
+======================= */
+.form-box {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+.form-box h3 {
+  margin-bottom: 10px;
+}
+
+.form-box form {
+  max-width: 400px;
+}
+
+.form-box input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.form-box button {
+  width: 100%;
+  padding: 10px;
+}
+
+.table-box h3 {
+  margin-bottom: 10px;
+}
+
+/* =======================
+   FARMER ORDERS PAGE
+======================= */
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.approved {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status.cancelled {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* =======================
+   HOME PAGE
+======================= */
+.page-title {
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.page-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.product-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+/* Small buttons */
+.btn.small {
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+.btn.green {
+  background-color: #2e7d32;
+}
+
+.btn.green:hover {
+  background-color: #1b5e20;
+}
+
+/* =======================
+   ORDER STATUS BADGES
+======================= */
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.approved {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status.cancelled {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.approved {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status.cancelled {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* =======================
+   PRODUCTS PAGE
+======================= */
+.page-title {
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.page-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.product-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.auth-form select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+

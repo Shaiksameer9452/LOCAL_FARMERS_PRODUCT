@@ -1,27 +1,39 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h1>Fresh Produce from Local Farmers</h1>
+<div class="page-box">
 
-<div class="product-grid">
-  {% for p in products %}
-    <div class="card">
+  <h1 class="page-title"> Fresh Produce from Local Farmers </h1>
+  <p class="page-subtitle"> Buy fresh vegetables directly from farmers </p>
 
-      <img
-        src="{{ url_for('static', filename='images/' ~ p.image) }}"
-        alt="{{ p.name }}"
-        class="product-img"
-      >
-      <h3>{{ p.name }}</h3>
-      <p>Price: ₹{{ p.price }} / kg</p>
-      <p>Available: {{ p.quantity }} kg</p>
-      <a href="{{ url_for('product_details', product_id=p.id) }}" class="btn btn-view">
-         View
-      </a>
-      <a href="{{ url_for('add_to_cart', product_id=p.id) }}" class="btn btn-cart">
-        Add to Cart
-      </a>
-    </div>
-  {% endfor %}
+  <div class="product-grid">
+    {% for p in products %}
+      <div class="product-card">
+
+        <img
+          src="{{ url_for('static', filename='images/' ~ (p.image if p.image else 'default.jpg')) }}"
+          alt="{{ p.name }}"
+          class="product-img"
+        >
+
+        <h3>{{ p.name|title }}</h3>
+
+        <p class="price">₹{{ p.price }} / kg</p>
+        <p class="qty">Available: {{ p.quantity }} kg</p>
+
+        <div class="card-actions">
+          <a href="{{ url_for('product_details', product_id=p.id) }}" class="btn small">
+            View
+          </a>
+
+          <a href="{{ url_for('add_to_cart', product_id=p.id) }}" class="btn small green">
+            Add to Cart
+          </a>
+        </div>
+
+      </div>
+    {% endfor %}
+  </div>
+
 </div>
 {% endblock %}

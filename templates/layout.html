@@ -1,48 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Local Farmer Store</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
+<!-- NAVBAR -->
 <nav class="navbar">
-  <b>🌱 Local Farmer Store</b>
-  <div>
+  <div class="nav-left">
+     <span class="brand">Local Farmer Store</span>
+  </div>
+
+  <div class="nav-right">
     {% if session.get("user_id") %}
+
       {% if session.get("role") == "customer" %}
-      <a href="/">Home</a>
-      <a href="/products">Products</a>
-      {% endif %}
-        {% if session.get("role") == "farmer" %}
-            <a href="/farmer/dashboard">Dashboard</a>
-        {% endif %}
-        {% if session.get("role") == "farmer" %}
-          <a href="{{ url_for('farmer_orders') }}">My Orders</a>
-        {% endif %}
-        
-        {% if session.get("role") == "customer" %}
-          <a href="{{ url_for('my_orders') }}">My Orders</a>
-        {% endif %}
-
-        {% if session.get("role") == "admin" %}
-          <a href="{{ url_for('admin_orders') }}">Admin Orders</a>
-        {% endif %}
-
-        {% if session.get("role") == "customer" %}
+        <a href="/">Home</a>
+        <a href="/products">Products</a>
+        <a href="{{ url_for('my_orders') }}">My Orders</a>
         <a href="/cart">Cart</a>
-        {% endif %}
-        <a href="/logout">Logout</a>
+      {% endif %}
+
+      {% if session.get("role") == "farmer" %}
+        <a href="/farmer/dashboard">Dashboard</a>
+        <a href="{{ url_for('farmer_orders') }}">Orders</a>
+      {% endif %}
+
+      {% if session.get("role") == "admin" %}
+        <a href="{{ url_for('admin_orders') }}">Admin Orders</a>
+      {% endif %}
+
+      <a href="/logout" class="logout-btn">Logout</a>
+
     {% else %}
-        <a href="/login">Login</a>
-        <a href="/register">Register</a>
+      <a href="/login">Login</a>
+      <a href="/register" class="register-btn">Register</a>
     {% endif %}
   </div>
 </nav>
 
-<div class="container">
+<!-- MAIN CONTENT -->
+<main class="container">
   {% block content %}{% endblock %}
-</div>
+</main>
 
 </body>
 </html>

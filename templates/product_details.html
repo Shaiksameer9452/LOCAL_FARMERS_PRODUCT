@@ -1,20 +1,24 @@
 {% extends "layout.html" %}
-
 {% block content %}
-<div class="product-details">
-
-  <img
-    src="{{ url_for('static', filename='images/' ~ product.image) }}"
-    class="product-img-large"
-  >
-
-  <h2>{{ product.name }}</h2>
-  <p>Price: ₹{{ product.price }} / kg</p>
-  <p>Available: {{ product.quantity }} kg</p>
-
-  <a href="{{ url_for('add_to_cart', product_id=product.id) }}" class="btn btn-cart">
-    Add to Cart
-  </a>
-
+<div class="page-box">
+  <div class="product-detail-card">
+    <div class="product-detail-image">
+      <img
+        src="{{ url_for('static', filename='images/' ~ (product.image if product.image else 'default.jpg')) }}"
+        alt="{{ product.name }}"
+      >
+    </div>
+    <div class="product-detail-info">
+      <h2>{{ product.name|title }}</h2>
+      <p class="price">₹{{ product.price }} / kg</p>
+      <p class="qty">Available: {{ product.quantity }} kg</p>
+      <a
+        href="{{ url_for('add_to_cart', product_id=product.id) }}"
+        class="btn green"
+      >
+        Add to Cart
+      </a>
+    </div>
+  </div>
 </div>
 {% endblock %}

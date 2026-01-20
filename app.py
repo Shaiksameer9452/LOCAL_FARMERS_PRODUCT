@@ -117,7 +117,7 @@ def farmer_dashboard():
         price = request.form["price"]
         quantity = request.form["quantity"]
 
-        # 🔍 GET IMAGE FROM EXISTING PRODUCTS (MASTER)
+        #  GET IMAGE FROM EXISTING PRODUCTS (MASTER)
         image_row = db.execute(
             "SELECT image FROM products WHERE name = ? AND image IS NOT NULL LIMIT 1",
             (name,)
@@ -125,7 +125,7 @@ def farmer_dashboard():
 
         image = image_row["image"] if image_row else "default.jpg"
 
-        # ✅ INSERT FARMER PRODUCT WITH IMAGE
+        #  INSERT FARMER PRODUCT WITH IMAGE
         db.execute("""
             INSERT INTO products (name, price, quantity, image, farmer_id)
             VALUES (?, ?, ?, ?, ?)
@@ -339,13 +339,13 @@ def admin_login():
         user = db.execute(
             "SELECT * FROM users WHERE username = ? AND email = ? AND password = ?",
             (username, email, password)
-        ).fetchone()   # 🔥 THIS IS REQUIRED
+        ).fetchone()   #  THIS IS REQUIRED
 
         if user:
             session["user_id"] = user["id"]
             session["role"] = user["role"]
 
-            # ✅ redirect admin to admin_orders
+            #  redirect admin to admin_orders
             if user["role"] == "admin":
                 return redirect(url_for("admin_orders"))
             else:
