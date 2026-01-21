@@ -117,7 +117,7 @@ def farmer_dashboard():
         price = request.form["price"]
         quantity = request.form["quantity"]
 
-        #  GET IMAGE FROM EXISTING PRODUCTS (MASTER)
+        #  GET IMAGE FROM EXISTING PRODUCTS 
         image_row = db.execute(
             "SELECT image FROM products WHERE name = ? AND image IS NOT NULL LIMIT 1",
             (name,)

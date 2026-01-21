@@ -33,6 +33,17 @@ CREATE TABLE IF NOT EXISTS orders (
 )
 """)
 db.execute("""
+CREATE TABLE cart (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    product_id INTEGER,
+    quantity INTEGER,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
+    FOREIGN KEY (product_id) REFERENCES products(id)
+)
+""")
+db.execute("""
 CREATE TABLE order_items (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     order_id INTEGER,
