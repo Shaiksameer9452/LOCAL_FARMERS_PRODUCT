@@ -12,8 +12,7 @@
       <h2>{{ product.name|title }}</h2>
       <p class="price">₹{{ product.price }} / kg</p>
       <p class="qty">Available: {{ product.quantity }} kg</p>
-      <a
-        href="{{ url_for('add_to_cart', product_id=product.id) }}"
+      <a href="{{ url_for('add_to_cart', product_id=product.id) }}"
         class="btn green"
       >
         Add to Cart
