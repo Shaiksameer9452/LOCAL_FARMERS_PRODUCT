@@ -12,7 +12,6 @@
           alt="{{ p.name }}"
           class="product-img"
         >
-
         <h3>{{ p.name|title }}</h3>
         <p class="price">₹{{ p.price }} / kg</p>
         <p class="qty">Available: {{ p.quantity }} kg</p>
@@ -25,10 +24,8 @@
             Add to Cart
           </a>
         </div>
-
       </div>
     {% endfor %}
   </div>
-
 </div>
 {% endblock %}

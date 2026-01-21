@@ -218,7 +218,6 @@ def place_order():
     # Clear cart
     db.execute("DELETE FROM cart WHERE user_id = ?", (user_id,))
     db.commit()
-
     return redirect(url_for("order_success"))
 
 @app.route("/order_success")
@@ -233,7 +232,6 @@ def my_orders():
         return redirect(url_for("login"))
 
     db = get_db()
-
     orders = db.execute("""
         SELECT 
             orders.id AS order_id,
@@ -250,7 +248,6 @@ def my_orders():
     """, (user_id,)).fetchall()
 
     return render_template("my_orders.html", orders=orders)
-
 
 
 @app.route("/debug-db")
