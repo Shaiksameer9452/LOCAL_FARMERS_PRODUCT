@@ -2,9 +2,7 @@
 
 {% block content %}
 <div class="page-box">
-
   <h2> My Orders </h2>
-
   {% if orders %}
     <table class="data-table">
       <thead>
@@ -37,6 +35,5 @@
   {% else %}
     <p class="empty-text">You have not placed any orders yet.</p>
   {% endif %}
-
 </div>
 {% endblock %}

@@ -65,27 +65,21 @@ body {
   margin-bottom: 15px;
 }
 
-/* =======================
-   RESET
-======================= */
+/*  RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* =======================
-   BODY
-======================= */
+/* BODY */
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   background-color: #f4f6f8;
   color: #333;
 }
 
-/* =======================
-   NAVBAR
-======================= */
+/* NAVBAR */
 .navbar {
   background-color: #2e7d32;
   color: white;
@@ -131,18 +125,14 @@ body {
   border-radius: 4px;
 }
 
-/* =======================
-   MAIN CONTAINER
-======================= */
+/*  MAIN CONTAINER */
 .container {
   max-width: 1200px;
   margin: 25px auto;
   padding: 0 15px;
 }
 
-/* =======================
-   HEADINGS
-======================= */
+/* HEADINGS */
 h1 {
   font-size: 28px;
   margin-bottom: 10px;
@@ -153,9 +143,7 @@ h2 {
   margin-bottom: 15px;
 }
 
-/* =======================
-   PRODUCT GRID (HOME / PRODUCTS)
-======================= */
+/* PRODUCT GRID (HOME / PRODUCTS) */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -198,9 +186,7 @@ h2 {
   color: #666;
 }
 
-/* =======================
-   BUTTONS
-======================= */
+/*  BUTTONS */
 .btn {
   display: inline-block;
   margin-top: 10px;
@@ -216,9 +202,7 @@ h2 {
   background-color: #1b5e20;
 }
 
-/* =======================
-   TABLES (ORDERS / CART)
-======================= */
+/* TABLES (ORDERS / CART) */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -238,9 +222,7 @@ th {
   font-weight: 600;
 }
 
-/* =======================
-   FORMS (LOGIN / REGISTER / FARMER)
-======================= */
+/*  FORMS (LOGIN / REGISTER / FARMER) */
 form {
   background: white;
   padding: 20px;
@@ -272,9 +254,7 @@ form button:hover {
   background-color: #1b5e20;
 }
 
-/* =======================
-   PAGE BOX
-======================= */
+/* PAGE BOX */
 .page-box {
   background: white;
   padding: 20px;
@@ -282,9 +262,7 @@ form button:hover {
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-/* =======================
-   DATA TABLE
-======================= */
+/*  DATA TABLE */
 .data-table {
   width: 100%;
   border-collapse: collapse;
@@ -303,9 +281,7 @@ form button:hover {
   font-weight: 600;
 }
 
-/* =======================
-   STATUS BADGES
-======================= */
+/*  STATUS BADGES */
 .status {
   padding: 4px 10px;
   border-radius: 12px;
@@ -328,9 +304,7 @@ form button:hover {
   color: #721c24;
 }
 
-/* =======================
-   SMALL BUTTONS
-======================= */
+/*  SMALL BUTTONS */
 .btn.small {
   padding: 5px 10px;
   font-size: 13px;
@@ -353,9 +327,7 @@ form button:hover {
   background: #a00000;
 }
 
-/* =======================
-   AUTH PAGES (LOGIN / ADMIN)
-======================= */
+/* AUTH PAGES (LOGIN / ADMIN) */
 .auth-box {
   max-width: 400px;
   margin: 70px auto;
@@ -395,9 +367,7 @@ form button:hover {
   background-color: #1b5e20;
 }
 
-/* =======================
-   CART PAGE
-======================= */
+/*  CART PAGE */
 .cart-actions {
   margin-top: 20px;
   text-align: right;
@@ -409,9 +379,7 @@ form button:hover {
   color: #666;
 }
 
-/* =======================
-   FARMER DASHBOARD
-======================= */
+/*  FARMER DASHBOARD */
 .form-box {
   background: #f9f9f9;
   padding: 15px;
@@ -442,9 +410,7 @@ form button:hover {
   margin-bottom: 10px;
 }
 
-/* =======================
-   FARMER ORDERS PAGE
-======================= */
+/* FARMER ORDERS PAGE */
 .status {
   padding: 4px 10px;
   border-radius: 12px;
@@ -467,9 +433,7 @@ form button:hover {
   color: #721c24;
 }
 
-/* =======================
-   HOME PAGE
-======================= */
+/*  HOME PAGE */
 .page-title {
   text-align: center;
   margin-bottom: 6px;
@@ -508,9 +472,7 @@ form button:hover {
   background-color: #1b5e20;
 }
 
-/* =======================
-   ORDER STATUS BADGES
-======================= */
+/*  ORDER STATUS BADGES */
 .status {
   padding: 4px 10px;
   border-radius: 12px;
@@ -555,9 +517,9 @@ form button:hover {
   color: #721c24;
 }
 
-/* =======================
-   PRODUCTS PAGE
-======================= */
+
+  /* PRODUCTS PAGE */
+
 .page-title {
   text-align: center;
   margin-bottom: 6px;
