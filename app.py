@@ -2,10 +2,12 @@ from flask import Flask, render_template, request, redirect, session,url_for
 import sqlite3
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
+from functools import cache
 
 app = Flask(__name__)
 app.secret_key = "secret"
 
+@cache
 def get_db():
     conn = sqlite3.connect("store.db")
     conn.row_factory = sqlite3.Row
